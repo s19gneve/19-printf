@@ -1,9 +1,9 @@
-
+#include "ft.h"
 
 void printf(char *s, ...)
 {
 	va_list args;
-	int		numb;
+	int		numbs;
 	int		i;
 	char 	*s2;
 	int		g;
