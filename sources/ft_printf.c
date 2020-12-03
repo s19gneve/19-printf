@@ -1,6 +1,6 @@
 #include "ft.h"
 
-void printf(char *s, ...)
+int ft_printf(char *s, ...)
 {
 	va_list args;
 	int		numbs;

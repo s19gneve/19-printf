@@ -6,11 +6,13 @@
 /*   By: gneve <gneve@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 08:12:52 by gneve             #+#    #+#             */
-/*   Updated: 2020/12/03 08:14:07 by gneve            ###   ########.fr       */
+/*   Updated: 2020/12/03 08:16:57 by gneve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_H
 # define FT_H
 # include <stdarg.h>
+
+int	ft_printf(char *s, ...);
 #endif
