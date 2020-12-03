@@ -6,13 +6,17 @@ void printf(char *s, ...)
 	int		numb;
 	int		i;
 	char 	*s2;
+	int		g;
 
 	numbs = counts_args(s);
 	i = 0;
+	g = 0;
+	va_start(args, numbs);
 	while (s[i])
 	{
 		if (s[i] == "%")
-			s2 += add_argv();
+			ft_strcat(s2 , va_arg(args, arg_type(s, g)));
+			g += 1;
 		else
 			s2[j] = s[i];
 		i++;
