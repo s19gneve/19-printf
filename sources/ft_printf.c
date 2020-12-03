@@ -1,5 +1,7 @@
 #include "ft.h"
 
+static void *arg_type(char *s, int c);
+
 static int counts_args(char *s) {
 	int i;
 	int a;
@@ -39,7 +41,7 @@ int ft_printf(char *s, ...)
 	{
 		if (s[i] == "%")
 		{
-			ft_strlcat(s2 , va_arg(args, arg_type(s, g)), len);
+			ft_strlcat(s2 , typeof(*va_arg(args, arg_type(s, g))), len);
 			j += len(args);
 			g += 1;
 		}
