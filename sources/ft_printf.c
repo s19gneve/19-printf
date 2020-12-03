@@ -24,21 +24,28 @@ int ft_printf(char *s, ...)
 	va_list args;
 	int		numbs;
 	int		i;
+	int		j;
 	char 	*s2;
 	int		g;
+	int		len;
 
 	numbs = counts_args(s);
 	i = 0;
 	g = 0;
+	j = 0;
 	va_start(args, numbs);
+	len = find_lenght(args, numbs, s);
 	while (s[i])
 	{
 		if (s[i] == "%")
-			ft_strcat(s2 , va_arg(args, arg_type(s, g)));
+		{
+			ft_strlcat(s2 , va_arg(args, arg_type(s, g)), len);
 			g += 1;
+		}
 		else
-			s2[j] = s[i];
+			s2[j++] = s[i];
 		i++;
 	}
+	s2[j] == 0;
 	ft_putstr_fd(s2, 1);
 }
