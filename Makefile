@@ -25,3 +25,7 @@ all: ${NAME}
 clean:
 	${RM} ${OBJS}
 	cd libft && make clean
+
+fclean: clean
+	${RM} ${NAME}
+	cd libft && make fclean
