@@ -16,13 +16,7 @@ char *(char flags)
 		return (1);
 	if (flags == "X")
 		return (1);
-	
-	
-	
-	
-	
-	
-	
-	
+	if (flags == "%")
+		return (5);
 	
 }
