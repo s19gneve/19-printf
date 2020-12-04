@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 
 
-$(NAME):
+${NAME}:
 	cd libft && (MAKE)
 
-all: $(NAME)
+all: ${NAME}
