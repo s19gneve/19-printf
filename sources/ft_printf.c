@@ -31,14 +31,11 @@ static int counts_args(char *s)
 int ft_printf(char *s, ...)
 {
 	va_list args;
-	int		numbs;
 	int		i;
 	int		j;
 	char 	*s2;
-	int		g;
 	int		len;
 
-	numbs = counts_args(s);
 	i = 0;
 	j = 0;
 	va_start(args, s);
@@ -49,7 +46,7 @@ int ft_printf(char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			ft_strlcat(s2 , arg_type(args, s, &i), len);
+			ft_strlcat(s2 , args = arg_type(args, s, &i), len);
 			j += get_len(args);
 		}
 		else
