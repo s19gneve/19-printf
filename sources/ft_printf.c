@@ -8,6 +8,16 @@ static void *arg_type(va_list args, char *s, int *i)
 		return (ft_itoa(va_arg(args, int)));
 }
 
+int get_len(va_list args)
+{
+	// get len argument
+}
+
+int	find_lenght(va_list args, char *s)
+{
+	// trouer longeur total output
+}
+
 int ft_printf(char *s, ...)
 {
 	va_list args;
@@ -26,8 +36,9 @@ int ft_printf(char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			ft_strlcat(s2 , args = arg_type(args, s, &i), len);
+			ft_strlcat(s2 , arg_type(args, s, &i), len);
 			j += get_len(args);
+			i++;
 		}
 		else
 			s2[j++] = s[i];
