@@ -13,6 +13,7 @@
 #ifndef FT_H
 # define FT_H
 # include <stdarg.h>
+# include "libft.a"
 
 int	ft_printf(char *s, ...);
 #endif
