@@ -4,7 +4,7 @@ static void *arg_type(va_list args, char *s, int *i)
 {
 	if (s[i + 1] == '%')
 		return ("%");
-	if (s[i + 1] == "i" || s[i + 1] == "d")
+	if (s[i + 1] == 'i' || s[i + 1] == 'd')
 		return (ft_itoa(va_arg(args, int)));
 }
 
@@ -19,7 +19,7 @@ static int counts_args(char *s)
 		return (0);
 	while (s && s[i + 1] != 0 )
 	{
-		if (s[i] == "%" && s[i + 1] != "%")
+		if (s[i] == '%' && s[i + 1] != '%')
 		{
 			a++;
 		}
@@ -50,7 +50,7 @@ int ft_printf(char *s, ...)
 		if (s[i] == "%")
 		{
 			ft_strlcat(s2 , arg_type(args, s, &i), len);
-			j += len(args);
+			j += ft_strlen(args);
 		}
 		else
 			s2[j++] = s[i];
