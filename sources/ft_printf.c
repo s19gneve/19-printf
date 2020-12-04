@@ -1,8 +1,15 @@
 #include "ft.h"
 
-static void *arg_type(char *s, int c);
+static void *arg_type(va_list args, char *s, int *i)
+{
+	if (s[i + 1] == '%')
+		return ("%");
+	if (s[i + 1] == "i")
+		return (ft_itoa(va_arg(args, int)));
+}
 
-static int counts_args(char *s) {
+static int counts_args(char *s)
+{
 	int i;
 	int a;
 
@@ -33,7 +40,6 @@ int ft_printf(char *s, ...)
 
 	numbs = counts_args(s);
 	i = 0;
-	g = 0;
 	j = 0;
 	va_start(args, numbs);
 	len = find_lenght(args, numbs, s);
@@ -41,9 +47,8 @@ int ft_printf(char *s, ...)
 	{
 		if (s[i] == "%")
 		{
-			ft_strlcat(s2 , typeof(*va_arg(args, arg_type(s, g))), len);
+			ft_strlcat(s2 , arg_type(args, s, &i), len);
 			j += len(args);
-			g += 1;
 		}
 		else
 			s2[j++] = s[i];
