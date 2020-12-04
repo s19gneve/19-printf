@@ -2,9 +2,9 @@
 
 static void *arg_type(va_list args, char *s, int *i)
 {
-	if (s[i + 1] == '%')
+	if (s[*i + 1] == '%')
 		return ("%");
-	if (s[i + 1] == 'i' || s[i + 1] == 'd')
+	if (s[*i + 1] == 'i' || s[*i + 1] == 'd')
 		return (ft_itoa(va_arg(args, int)));
 }
 
@@ -41,16 +41,16 @@ int ft_printf(char *s, ...)
 	numbs = counts_args(s);
 	i = 0;
 	j = 0;
-	va_start(args, numbs);
-	len = find_lenght(args, numbs, s);
+	va_start(args, s);
+	len = find_lenght(args, s);
 	if (s2 = malloc(len * sizeof(char)))
 		return (0);
 	while (s[i])
 	{
-		if (s[i] == "%")
+		if (s[i] == '%')
 		{
 			ft_strlcat(s2 , arg_type(args, s, &i), len);
-			j += ft_strlen(args);
+			j += get_len(args);
 		}
 		else
 			s2[j++] = s[i];
